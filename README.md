@@ -13,7 +13,15 @@ The GitHub Pages edition lives in `docs/`. QR codes are generated entirely in yo
 - Downloads `qr-code.png` with high error correction and a four-module white border.
 - Uses no account, database, external fonts, or runtime CDN dependencies.
 
-The QR code encodes its destination directly, with no built-in expiration or editable redirect. A destination website must still remain available.
+### Do these QR codes expire?
+
+No. These are **static QR codes**: each code stores the web address directly in the image and has no built-in expiration date. Once you download or print a code, it does not depend on this generator staying online, an account, or a subscription.
+
+The code will continue to point to the same address as long as the image remains readable. To open the intended page, the person scanning it needs access to the internet (or the relevant network), and that page must remain available at the encoded address. Keeping a website published is enough only if that specific address still works. If the page moves, a redirect from the original address can keep an existing code useful; otherwise, generate a new code for the new address.
+
+You can update the content of a page without changing its QR code, provided its address stays the same. The destination stored in an already downloaded or printed code cannot be edited through this app. Before sharing a code, scan it to confirm that it opens the intended page.
+
+### Maintaining the web app
 
 GitHub Pages publishes `docs/` from `main`. To change the web interface, edit `docs/index.html` or `docs/app.js` and push to `main`. The bundled QR library is already committed. To rebuild that bundle, install Node.js, then run:
 

@@ -10,7 +10,9 @@ START
 CREATE A QR CODE
 Enter a website address and click Generate QR Code (or press Enter).
 Addresses without a scheme receive https:// automatically. Check the address
-shown below the preview, then click Download PNG to save qr-code.png.
+shown below the preview, then click Download PNG. The filename includes the
+website domain and page path. The proposed filename appears below the
+download button.
 Your browser controls the download location and may append a number if a file
 with that name already exists. Scan the saved image with your phone to check it.
 

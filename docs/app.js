@@ -9,8 +9,17 @@ const encoded = document.querySelector('#encoded');
 const download = document.querySelector('#download');
 const error = document.querySelector('#error');
 const preview = document.querySelector('.preview');
+const filenameLabel = document.querySelector('#filename');
 let revision = 0;
 let objectURL = null;
+let generatedURL = null;
+
+function updateFilename() {
+  if (!generatedURL) return;
+  download.download = QRDownload.filename(generatedURL);
+  filenameLabel.textContent = 'File: ' + download.download;
+  filenameLabel.hidden = false;
+}
 
 function normalizeURL(value) {
   let url = value.trim();
@@ -51,6 +60,8 @@ function normalizeURL(value) {
 }
 
 function clearPreview() {
+  generatedURL = null;
+  filenameLabel.hidden = true;
   qr.hidden = true;
   qr.removeAttribute('src');
   empty.hidden = false;
@@ -102,6 +113,8 @@ form.addEventListener('submit', async event => {
     empty.hidden = true;
     encoded.textContent = url;
     download.href = objectURL;
+    generatedURL = url;
+    updateFilename();
     download.hidden = false;
   } catch (problem) {
     if (current !== revision) return;

@@ -7,7 +7,7 @@ import webbrowser
 from urllib.parse import urlsplit
 
 import qrcode
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, send_from_directory
 from qrcode.exceptions import DataOverflowError
 from waitress import create_server
 
@@ -76,6 +76,12 @@ def generate():
         return jsonify(error='This address is too long to encode. Try a shorter link.'), 400
     except ValueError as exc:
         return jsonify(error=str(exc)), 400
+
+
+@app.get('/filename.js')
+def filename_script():
+    from pathlib import Path
+    return send_from_directory(Path(__file__).resolve().parent / 'docs', 'filename.js')
 
 
 @app.errorhandler(413)

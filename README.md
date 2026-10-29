@@ -10,7 +10,7 @@ The GitHub Pages edition lives in `docs/`. QR codes are generated entirely in yo
 
 - Accepts HTTP and HTTPS addresses and adds `https://` to bare domains.
 - Shows the exact address encoded and clears the previous code when you edit it.
-- Downloads `qr-code.png` with high error correction and a four-module white border.
+- Downloads a descriptively named PNG, such as `qr-example-com-about.png`, with high error correction and a four-module white border. Filenames come from the website domain and page path. Query parameters and fragments are excluded from filenames; the QR code still contains the complete address.
 - Uses no account, database, external fonts, or runtime CDN dependencies.
 
 ### Do these QR codes expire?

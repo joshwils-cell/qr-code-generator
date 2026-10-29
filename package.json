@@ -1,0 +1,16 @@
+{
+  "name": "qr-code-generator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A browser-based QR code generator with a local Python edition.",
+  "scripts": {
+    "build": "esbuild node_modules/qrcode/lib/browser.js --bundle --minify --platform=browser --global-name=QRCode --outfile=docs/vendor/qrcode.min.js --legal-comments=inline",
+    "check": "node --check docs/app.js"
+  },
+  "dependencies": {
+    "qrcode": "1.5.4"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  }
+}
